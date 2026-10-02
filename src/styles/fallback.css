@@ -1,0 +1,95 @@
+/* Designed Editorial Architectural Image Fallback System */
+.editorial-fallback-cover {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #F5F4F0 0%, #EBEAE5 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-5);
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* Coordinate Hairline Grid Pattern */
+.editorial-fallback-cover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(200, 200, 190, 0.25) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(200, 200, 190, 0.25) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+}
+
+.fallback-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+}
+
+.fallback-index-stamp {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--color-accent-terracotta);
+}
+
+.fallback-category-label {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+}
+
+/* Center Architectural Line Motif & Korean Calligraphy */
+.fallback-center-motif {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  z-index: 1;
+}
+
+.fallback-svg-icon {
+  width: 48px;
+  height: 48px;
+  color: var(--color-text-secondary);
+  opacity: 0.85;
+}
+
+.fallback-korean-watermark {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--color-text-primary);
+  opacity: 0.8;
+}
+
+.fallback-footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  z-index: 1;
+  font-size: 10px;
+  font-family: var(--font-sans);
+  color: var(--color-text-tertiary);
+  letter-spacing: 0.04em;
+  border-top: 1px solid rgba(200, 200, 190, 0.4);
+  padding-top: var(--space-2);
+}
+
+.fallback-coords {
+  font-family: monospace;
+}
+
+.fallback-district-stamp {
+  text-transform: uppercase;
+  font-weight: 500;
+}

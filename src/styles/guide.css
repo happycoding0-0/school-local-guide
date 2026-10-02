@@ -1,0 +1,260 @@
+/* Local Guide Integration Inside Detail & Rails */
+.local-guide-section {
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border-hairline);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.local-guide-header {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.guide-badge-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent-terracotta);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.guide-heading {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+}
+
+.guide-subheading {
+  font-size: 12.5px;
+  color: var(--color-text-tertiary);
+}
+
+.guide-suggestions-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-1);
+}
+
+/* Guide Suggestion Item */
+.guide-suggestion-card {
+  padding: var(--space-3) var(--space-4);
+  background-color: var(--color-surface-subtle);
+  border: 1px solid var(--color-border-hairline);
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-align: left;
+}
+
+.guide-suggestion-card:hover {
+  background-color: var(--color-surface-white);
+  border-color: var(--color-border-strong);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-subtle);
+}
+
+.suggestion-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.suggestion-meta-group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.suggestion-type-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: var(--radius-xs);
+  background-color: var(--color-surface-white);
+  border: 1px solid var(--color-border-hairline);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.suggestion-title {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.suggestion-subtitle {
+  font-size: 11.5px;
+  color: var(--color-text-tertiary);
+  font-family: var(--font-display);
+}
+
+.suggestion-arrow {
+  color: var(--color-text-tertiary);
+  transition: transform var(--transition-fast);
+}
+
+.guide-suggestion-card:hover .suggestion-arrow {
+  transform: translateX(2px);
+  color: var(--color-accent);
+}
+
+.suggestion-reason {
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--color-text-secondary);
+  padding-left: 28px;
+}
+
+/* Route View Styling */
+.route-view-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  background-color: #FBFBFA;
+  border: 1px solid var(--color-border-hairline);
+  border-radius: var(--radius-md);
+  margin-top: var(--space-2);
+}
+
+.route-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--color-border-hairline);
+}
+
+.route-header-titles {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.route-tag {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent-terracotta);
+}
+
+.route-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.route-duration-badge {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  background-color: var(--color-surface-subtle);
+  padding: 3px 8px;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--color-border-hairline);
+  white-space: nowrap;
+}
+
+.route-description {
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--color-text-secondary);
+}
+
+/* Step-by-Step Vertical Route Timeline */
+.route-timeline {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-top: var(--space-2);
+}
+
+.route-step-item {
+  display: flex;
+  gap: var(--space-3);
+  position: relative;
+  padding-bottom: var(--space-4);
+}
+
+.route-step-item:last-child {
+  padding-bottom: 0;
+}
+
+/* Connecting Vertical Line */
+.route-step-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 24px;
+  flex-shrink: 0;
+}
+
+.step-marker-dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  color: var(--color-text-inverse);
+  font-size: 10.5px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.step-connecting-line {
+  flex: 1;
+  width: 1.5px;
+  background-color: var(--color-border-muted);
+  margin-top: 4px;
+}
+
+.route-step-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-top: 1px;
+}
+
+.step-place-name {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.step-place-name:hover {
+  color: var(--color-accent-terracotta);
+  text-decoration: underline;
+}
+
+.step-allocated-time {
+  font-size: 11px;
+  color: var(--color-accent-terracotta);
+  font-weight: 600;
+}
+
+.step-instruction-note {
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--color-text-secondary);
+}

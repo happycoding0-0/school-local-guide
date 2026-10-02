@@ -1,0 +1,255 @@
+/* Area Context Section */
+.area-context {
+  padding: var(--space-6) var(--space-6) var(--space-4);
+  border-bottom: 1px solid var(--color-border-hairline);
+  background-color: var(--color-canvas-bg);
+}
+
+.area-meta-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent-terracotta);
+  margin-bottom: var(--space-2);
+}
+
+.area-title {
+  font-size: var(--font-size-title);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.area-description {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-3);
+}
+
+.area-metrics {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  font-size: 12px;
+  color: var(--color-text-tertiary);
+}
+
+.area-metric-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Featured Place Section - Single Visual Hero */
+.featured-place-section {
+  padding: var(--space-5) var(--space-6);
+  border-bottom: 1px solid var(--color-border-hairline);
+  background-color: var(--color-surface-white);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.featured-place-section:hover {
+  background-color: #FCFCFA;
+}
+
+.featured-header-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+  margin-bottom: var(--space-3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.featured-image-wrapper {
+  width: 100%;
+  height: 180px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  position: relative;
+  margin-bottom: var(--space-3);
+  background-color: var(--color-surface-subtle);
+  border: 1px solid var(--color-border-hairline);
+}
+
+.featured-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-base);
+}
+
+.featured-place-section:hover .featured-image-wrapper img {
+  transform: scale(1.02);
+}
+
+.featured-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: 6px;
+}
+
+.featured-number {
+  font-size: 11px;
+  font-weight: 700;
+  font-family: var(--font-display);
+  color: var(--color-text-tertiary);
+}
+
+.featured-category {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-accent-terracotta);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.featured-name {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--color-text-primary);
+  margin-bottom: 6px;
+}
+
+.featured-korean-name {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--color-text-tertiary);
+  margin-left: 6px;
+}
+
+.featured-summary {
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--color-text-secondary);
+}
+
+/* Curated Place Index Section */
+.place-index-container {
+  padding: var(--space-5) 0 var(--space-8);
+  flex: 1;
+}
+
+.place-index-header {
+  padding: 0 var(--space-6) var(--space-3);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.place-index-list {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Individual Place Index Item - Minimal Editorial Fast Scanning */
+.place-index-item {
+  display: flex;
+  align-items: baseline;
+  padding: 12px var(--space-6);
+  border-bottom: 1px solid rgba(230, 230, 224, 0.4);
+  cursor: pointer;
+  position: relative;
+  transition: background-color var(--transition-fast);
+}
+
+.place-index-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background-color: var(--color-accent);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.place-index-item:hover {
+  background-color: var(--color-surface-subtle);
+}
+
+.place-index-item.hovered {
+  background-color: var(--color-surface-subtle);
+}
+
+.place-index-item.selected {
+  background-color: var(--color-surface-white);
+}
+
+.place-index-item.selected::before {
+  opacity: 1;
+}
+
+.item-index-number {
+  font-size: 12px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--color-text-tertiary);
+  width: 28px;
+  flex-shrink: 0;
+}
+
+.place-index-item.selected .item-index-number {
+  color: var(--color-accent-terracotta);
+}
+
+.item-index-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.item-title-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 2px;
+}
+
+.item-name {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.place-index-item.selected .item-name {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+.item-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--color-text-tertiary);
+}
+
+.item-category {
+  color: var(--color-text-secondary);
+}
+
+.item-korean {
+  font-size: 11.5px;
+  color: var(--color-text-tertiary);
+}

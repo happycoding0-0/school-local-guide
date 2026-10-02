@@ -1,3 +1,4 @@
+import React from 'react';
 import type { Place } from '../types';
 
 interface ImageFallbackProps {
@@ -5,86 +6,55 @@ interface ImageFallbackProps {
 }
 
 export const ImageFallback: React.FC<ImageFallbackProps> = ({ place }) => {
-  const motif = place.image.motif || 'hanok';
-
-  // SVG Line Motifs representing authentic local heritage
-  const renderMotifSvg = () => {
-    switch (motif) {
-      case 'teahouse':
-        return (
-          <svg className="fallback-svg-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-            {/* Minimalist Tea Bowl & Steam */}
-            <path d="M12 24c0 7 4.5 12 12 12s12-5 12-12H12z" />
-            <path d="M10 24h28" />
-            <path d="M18 36v3h12v-3" />
-            <path d="M20 16c1-2 0-4 1-6" />
-            <path d="M27 16c1-2 0-4 1-6" />
-          </svg>
-        );
-      case 'stone':
-        return (
-          <svg className="fallback-svg-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-            {/* Layered Fortress Rampart Battlements */}
-            <path d="M6 38h36" />
-            <path d="M8 38V24h32v14" />
-            <path d="M8 24h7v-6h6v6h6v-6h6v6h7" />
-            <path d="M18 31h12" />
-            <path d="M14 38v-7" />
-            <path d="M34 38v-7" />
-          </svg>
-        );
-      case 'village':
-        return (
-          <svg className="fallback-svg-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-            {/* Hillside Steps & Low Rooftops */}
-            <path d="M6 40h36" />
-            <path d="M10 40V34h8V28h8V22h8V16h4v24" />
-            <path d="M8 22l8-6 8 6" />
-            <path d="M22 16l8-6 8 6" />
-          </svg>
-        );
-      case 'hearth':
-        return (
-          <svg className="fallback-svg-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-            {/* Traditional Cooking Vessel / Hearth */}
-            <ellipse cx="24" cy="20" rx="14" ry="4" />
-            <path d="M10 20c0 9 6 15 14 15s14-6 14-15" />
-            <path d="M16 35v5M32 35v5" />
-            <path d="M24 10v4" />
-          </svg>
-        );
-      case 'hanok':
-      default:
-        return (
-          <svg className="fallback-svg-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-            {/* Sweeping Hanok Roof Eave & Wooden Frame */}
-            <path d="M6 22c8-5 20-5 36 0" />
-            <path d="M10 21l14-9 14 9" />
-            <path d="M12 22v18h24V22" />
-            <path d="M20 28v12M28 28v12" />
-            <path d="M16 28h16" />
-          </svg>
-        );
-    }
-  };
-
   return (
-    <div className="editorial-fallback-cover">
-      <div className="fallback-header-row">
-        <span className="fallback-index-stamp">NO. {place.numericId}</span>
-        <span className="fallback-category-label">{place.category}</span>
+    <div className="modern-editorial-cover" role="img" aria-label={`Architectural graphic cover for ${place.name}`}>
+      {/* Precision Geometric Grid Background */}
+      <div className="cover-grid-layer" aria-hidden="true" />
+
+      {/* Top Meta Header */}
+      <div className="cover-top-bar">
+        <div className="cover-index-badge">
+          <span className="cover-index-prefix">LOC</span>
+          <span className="cover-index-val">{place.numericId}</span>
+        </div>
+        <div className="cover-category-chip">
+          <span className="cover-category-dot" />
+          <span className="cover-category-text">{place.category.toUpperCase()}</span>
+        </div>
       </div>
 
-      <div className="fallback-center-motif">
-        {renderMotifSvg()}
-        <span className="fallback-korean-watermark">{place.nameKo}</span>
+      {/* Center Minimalist Map Geometry & Typography */}
+      <div className="cover-center-block">
+        <div className="cover-geometry-reticle" aria-hidden="true">
+          <svg viewBox="0 0 100 100" className="reticle-svg" fill="none" stroke="currentColor">
+            {/* Minimal coordinate circle and crosshair lines */}
+            <circle cx="50" cy="50" r="38" strokeWidth="0.75" strokeDasharray="3 3" opacity="0.4" />
+            <circle cx="50" cy="50" r="22" strokeWidth="0.75" opacity="0.3" />
+            <circle cx="50" cy="50" r="4" fill="currentColor" opacity="0.6" />
+            <line x1="12" y1="50" x2="38" y2="50" strokeWidth="0.75" opacity="0.5" />
+            <line x1="62" y1="50" x2="88" y2="50" strokeWidth="0.75" opacity="0.5" />
+            <line x1="50" y1="12" x2="50" y2="38" strokeWidth="0.75" opacity="0.5" />
+            <line x1="50" y1="62" x2="50" y2="88" strokeWidth="0.75" opacity="0.5" />
+          </svg>
+        </div>
+
+        <div className="cover-titles">
+          <h3 className="cover-place-name">{place.name}</h3>
+          <span className="cover-korean-clean">{place.nameKo}</span>
+        </div>
       </div>
 
-      <div className="fallback-footer-row">
-        <span className="fallback-coords">
-          {place.coordinates.lat.toFixed(4)}°N, {place.coordinates.lng.toFixed(4)}°E
-        </span>
-        <span className="fallback-district-stamp">Seongbuk Archival Record</span>
+      {/* Bottom Technical Coordinates Bar */}
+      <div className="cover-bottom-bar">
+        <div className="cover-coords-group">
+          <span className="cover-coords-label">GEO</span>
+          <span className="cover-coords-val">
+            {place.coordinates.lat.toFixed(5)}°N · {place.coordinates.lng.toFixed(5)}°E
+          </span>
+        </div>
+        <div className="cover-tag-group">
+          <span className="cover-district-label">SEONGBUK ARCHIVE</span>
+        </div>
       </div>
     </div>
   );

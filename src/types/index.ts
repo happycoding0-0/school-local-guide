@@ -5,12 +5,26 @@ export interface PlaceCoordinates {
   lng: number;
 }
 
+export interface ImageProvenance {
+  url: string;
+  source: string;
+  sourceUrl: string;
+  creator: string;
+  license: string;
+  depictsActualPlace: boolean;
+  caption?: string;
+}
+
 export interface PlaceImageInfo {
   url?: string;
   isVerifiedPhoto: boolean;
   attribution?: string;
   license?: string;
+  source?: string;
   sourceUrl?: string;
+  creator?: string;
+  depictsActualPlace?: boolean;
+  detailImage?: ImageProvenance;
   motif?: 'hanok' | 'mountain' | 'teahouse' | 'stone' | 'hearth' | 'village';
 }
 

@@ -15,6 +15,25 @@ export const PlaceDetailSheet: React.FC<PlaceDetailSheetProps> = ({
   onClose,
   onSelectPlace,
 }) => {
+  const [activePhoto, setActivePhoto] = React.useState<'hero' | 'detail'>('hero');
+
+  // Reset to hero when place changes
+  React.useEffect(() => {
+    setActivePhoto('hero');
+  }, [place.id]);
+
+  const currentMedia = activePhoto === 'detail' && place.image.detailImage
+    ? {
+        url: place.image.detailImage.url,
+        attribution: place.image.detailImage.caption || place.image.detailImage.creator,
+        license: place.image.detailImage.license,
+      }
+    : {
+        url: place.image.url,
+        attribution: place.image.attribution,
+        license: place.image.license,
+      };
+
   return (
     <article className="detail-sheet" aria-label={`Details for ${place.name}`}>
       {/* Header Close Control */}
@@ -31,13 +50,34 @@ export const PlaceDetailSheet: React.FC<PlaceDetailSheetProps> = ({
 
       {/* Hero Media Container */}
       <div className="detail-media-container">
-        {place.image.isVerifiedPhoto && place.image.url ? (
+        {place.image.isVerifiedPhoto && currentMedia.url ? (
           <>
-            <img src={place.image.url} alt={place.name} />
-            {place.image.attribution && (
+            <img src={currentMedia.url} alt={`${place.name} (${activePhoto})`} />
+            
+            {/* Multi-Photo Switcher Pill */}
+            {place.image.detailImage && (
+              <div className="photo-view-switcher" role="group" aria-label="Photo views">
+                <button
+                  type="button"
+                  className={`photo-switch-btn ${activePhoto === 'hero' ? 'active' : ''}`}
+                  onClick={() => setActivePhoto('hero')}
+                >
+                  Overview
+                </button>
+                <button
+                  type="button"
+                  className={`photo-switch-btn ${activePhoto === 'detail' ? 'active' : ''}`}
+                  onClick={() => setActivePhoto('detail')}
+                >
+                  Detail
+                </button>
+              </div>
+            )}
+
+            {currentMedia.attribution && (
               <div className="media-attribution-badge">
-                <span>{place.image.attribution}</span>
-                {place.image.license && <span>({place.image.license})</span>}
+                <span>{currentMedia.attribution}</span>
+                {currentMedia.license && <span>({currentMedia.license})</span>}
               </div>
             )}
           </>
